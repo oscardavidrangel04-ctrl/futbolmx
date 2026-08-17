@@ -4,19 +4,19 @@ function renderFixtureCard(f){
   const s=f.fixture.status.short;
   const live=['1H','HT','2H','ET','P','LIVE'].includes(s);
   const score=(f.goals.home!=null||f.goals.away!=null)?`${f.goals.home??0} - ${f.goals.away??0}`:'VS';
-  return `<article class="match">
+  return `<${f.url?`a href="${FMX.esc(f.url)}"`:`article`} class="match">
     <div class="match-meta"><strong>${live?'EN VIVO':FMX.fmtDate(f.fixture.date)}</strong><span>${FMX.fmtTime(f.fixture.date)}</span></div>
     <div class="match-body">
       <div class="mini-team">${FMX.logo(f.teams.home.logo,f.teams.home.name)}<span>${FMX.esc(f.teams.home.name)}</span></div>
       <span class="match-score">${score}</span>
       <div class="mini-team"><span>${FMX.esc(f.teams.away.name)}</span>${FMX.logo(f.teams.away.logo,f.teams.away.name)}</div>
     </div>
-  </article>`;
+  ${f.url?`</a>`:`</article>`}`;
 }
 
 function render(){
   const st=data.standings||[],fx=data.fixtures||[],teams=data.teams||[];
-  FMX.setDataState(data.live,data.updatedAt);
+  FMX.setDataState(false,window.FMX_MANUAL?.updatedAt);
 
   const featured=fx[0];
   if(featured){
@@ -60,13 +60,4 @@ function render(){
   </a>`).join('');
 }
 
-(async()=>{
-  render();
-  try{
-    const live=await FMX.api({view:'home'});
-    data={...live,live:true};
-    render();
-  }catch(e){
-    console.info('Usando datos de demostración:',e.message);
-  }
-})();
+render();

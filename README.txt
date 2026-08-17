@@ -21,3 +21,11 @@ API_FOOTBALL_LEAGUE_ID
 API_FOOTBALL_SEASON
 
 No pongas la API key dentro de archivos .js públicos.
+
+V5 MANUAL + SEO
+- La web usa datos manuales actuales de Apertura 2026 en lugar de la temporada 2024 limitada por la API gratuita.
+- Tabla actualizada manualmente con corte al 16 de agosto de 2026.
+- Próximos cuartos de Leagues Cup cargados con datos oficiales.
+- Nueva URL SEO: /leon-vs-real-salt-lake.html
+- Incluye title, meta description, canonical, SportsEvent JSON-LD, BreadcrumbList y FAQPage.
+- Para actualizar la tabla en el futuro edita demo.js.

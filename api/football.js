@@ -1,198 +1,34 @@
-
-const BASE = 'https://v3.football.api-sports.io';
-
-async function apiFetch(path, key) {
-  const res = await fetch(`${BASE}${path}`, {
-    headers: { 'x-apisports-key': key }
-  });
-
-  const json = await res.json();
-
-  if (!res.ok) {
-    throw new Error(`API HTTP ${res.status}: ${JSON.stringify(json)}`);
-  }
-
-  if (json.errors && Object.keys(json.errors).length) {
-    throw new Error(`API error: ${JSON.stringify(json.errors)}`);
-  }
-
-  return json;
+const BASE='https://v3.football.api-sports.io';
+async function call(path,key){const r=await fetch(`${BASE}${path}`,{headers:{'x-apisports-key':key}});if(!r.ok)throw new Error(`API-Football ${r.status}`);const j=await r.json();if(j.errors&&Object.keys(j.errors).length)throw new Error(JSON.stringify(j.errors));return j.response||[]}
+async function context(key){
+ const configuredLeague=process.env.API_FOOTBALL_LEAGUE_ID;
+ const configuredSeason=process.env.API_FOOTBALL_SEASON;
+ if(configuredLeague&&configuredSeason)return{leagueId:configuredLeague,season:configuredSeason,name:'Liga MX'};
+ const leagues=await call('/leagues?country=Mexico&current=true',key);
+ const liga=leagues.find(x=>(x.league?.name||'').toLowerCase()==='liga mx')||leagues.find(x=>(x.league?.name||'').toLowerCase().includes('liga mx'));
+ if(!liga)throw new Error('Liga MX no encontrada');
+ return{leagueId:liga.league.id,season:(liga.seasons||[]).find(s=>s.current)?.year||(liga.seasons||[]).at(-1)?.year,name:liga.league.name};
 }
-
-function pickLigaMX(leagues) {
-  const list = leagues?.response || [];
-
-  // Preferir coincidencia exacta en México.
-  const exact = list.find(x =>
-    String(x?.league?.name || '').toLowerCase() === 'liga mx' &&
-    String(x?.country?.name || '').toLowerCase() === 'mexico'
-  );
-  if (exact) return exact;
-
-  // Luego cualquier Liga MX mexicana.
-  const mx = list.find(x =>
-    String(x?.league?.name || '').toLowerCase().includes('liga mx') &&
-    String(x?.country?.name || '').toLowerCase() === 'mexico'
-  );
-  if (mx) return mx;
-
-  // Último fallback: nombre parecido.
-  return list.find(x =>
-    String(x?.league?.name || '').toLowerCase().includes('liga mx')
-  );
-}
-
-function latestSupportedSeason(leagueItem) {
-  const seasons = [...(leagueItem?.seasons || [])]
-    .filter(s => s?.year)
-    .sort((a, b) => Number(b.year) - Number(a.year));
-
-  const current = seasons.find(s => s.current);
-  return current?.year || seasons[0]?.year || null;
-}
-
-export default async function handler(req, res) {
-  try {
-    const key = process.env.API_FOOTBALL_KEY;
-
-    if (!key) {
-      return res.status(500).json({
-        error: 'API_FOOTBALL_KEY no está configurada'
-      });
-    }
-
-    res.setHeader(
-      'Cache-Control',
-      's-maxage=900, stale-while-revalidate=1800'
-    );
-
-    const forcedLeague = process.env.API_FOOTBALL_LEAGUE_ID
-      ? Number(process.env.API_FOOTBALL_LEAGUE_ID)
-      : null;
-
-    const forcedSeason = process.env.API_FOOTBALL_SEASON
-      ? Number(process.env.API_FOOTBALL_SEASON)
-      : null;
-
-    let leagueItem = null;
-    let leagueId = forcedLeague;
-
-    // IMPORTANTE:
-    // API-Football no permite usar "country" y "search" juntos.
-    // Por eso primero buscamos solo por nombre.
-    if (!leagueId) {
-      const leaguesBySearch = await apiFetch(
-        '/leagues?search=Liga%20MX',
-        key
-      );
-
-      leagueItem = pickLigaMX(leaguesBySearch);
-
-      // Si el search no encontró nada, consultar solo por país.
-      if (!leagueItem) {
-        const leaguesByCountry = await apiFetch(
-          '/leagues?country=Mexico',
-          key
-        );
-        leagueItem = pickLigaMX(leaguesByCountry);
-      }
-
-      if (!leagueItem) {
-        return res.status(502).json({
-          error: 'No se encontró Liga MX en API-Football',
-          hint: 'Puedes definir API_FOOTBALL_LEAGUE_ID manualmente en Vercel.'
-        });
-      }
-
-      leagueId = leagueItem.league.id;
-    } else {
-      const leagueLookup = await apiFetch(
-        `/leagues?id=${leagueId}`,
-        key
-      );
-
-      leagueItem = leagueLookup.response?.[0] || null;
-    }
-
-    let season = forcedSeason || latestSupportedSeason(leagueItem);
-
-    if (!season) {
-      season = new Date().getUTCFullYear();
-    }
-
-    const view = String(req.query.view || 'home');
-
-    // Para fixtures "next" no hace falta combinarlo con season.
-    // Esto evita incompatibilidades innecesarias.
-    const standingsPromise = apiFetch(
-      `/standings?league=${leagueId}&season=${season}`,
-      key
-    );
-
-    const fixturesPromise = apiFetch(
-      `/fixtures?league=${leagueId}&next=20`,
-      key
-    );
-
-    const teamsPromise = apiFetch(
-      `/teams?league=${leagueId}&season=${season}`,
-      key
-    );
-
-    const [standingsR, fixturesR, teamsR] = await Promise.all([
-      standingsPromise,
-      fixturesPromise,
-      teamsPromise
-    ]);
-
-    const standings =
-      standingsR?.response?.[0]?.league?.standings?.[0] || [];
-
-    const fixtures = fixturesR?.response || [];
-    const teams = teamsR?.response || [];
-
-    const common = {
-      live: true,
-      leagueId,
-      season,
-      leagueName: leagueItem?.league?.name || 'Liga MX',
-      updatedAt: new Date().toISOString()
-    };
-
-    if (view === 'standings') {
-      return res.status(200).json({
-        ...common,
-        standings
-      });
-    }
-
-    if (view === 'fixtures') {
-      return res.status(200).json({
-        ...common,
-        fixtures
-      });
-    }
-
-    if (view === 'teams') {
-      return res.status(200).json({
-        ...common,
-        teams
-      });
-    }
-
-    return res.status(200).json({
-      ...common,
-      standings,
-      fixtures,
-      teams
-    });
-
-  } catch (err) {
-    console.error('football api error', err);
-
-    return res.status(502).json({
-      error: 'No se pudieron obtener los datos de Liga MX',
-      detail: String(err?.message || err)
-    });
+export default async function handler(req,res){
+ if(req.method!=='GET')return res.status(405).json({error:'Método no permitido'});
+ const key=process.env.API_FOOTBALL_KEY;if(!key)return res.status(503).json({error:'API_FOOTBALL_KEY no está configurada'});
+ try{
+  const {leagueId,season,name}=await context(key);const view=String(req.query.view||'home');let payload={league:{id:leagueId,name,season},updatedAt:new Date().toISOString()};
+  if(view==='standings'){
+   const raw=await call(`/standings?league=${leagueId}&season=${season}`,key);payload.standings=raw?.[0]?.league?.standings?.[0]||[];
+  }else if(view==='fixtures'){
+   payload.fixtures=await call(`/fixtures?league=${leagueId}&season=${season}&next=30&timezone=America%2FMexico_City`,key);
+  }else if(view==='teams'){
+   payload.teams=await call(`/teams?league=${leagueId}&season=${season}`,key);
+  }else if(view==='team'){
+   const team=String(req.query.team||'').replace(/[^0-9]/g,'');if(!team)return res.status(400).json({error:'Falta team'});
+   const [teams,fixtures]=await Promise.all([call(`/teams?id=${team}`,key),call(`/fixtures?team=${team}&league=${leagueId}&season=${season}&next=8&timezone=America%2FMexico_City`,key)]);
+   payload.team=teams[0]||null;payload.fixtures=fixtures;
+  }else{
+   const [standingsRaw,fixtures,teams]=await Promise.all([call(`/standings?league=${leagueId}&season=${season}`,key),call(`/fixtures?league=${leagueId}&season=${season}&next=9&timezone=America%2FMexico_City`,key),call(`/teams?league=${leagueId}&season=${season}`,key)]);
+   payload.standings=standingsRaw?.[0]?.league?.standings?.[0]||[];payload.fixtures=fixtures;payload.teams=teams;
   }
+  res.setHeader('Cache-Control','s-maxage=600, stale-while-revalidate=1800');
+  return res.status(200).json(payload);
+ }catch(e){console.error(e);return res.status(500).json({error:'No se pudieron obtener los datos de Liga MX'});}
 }

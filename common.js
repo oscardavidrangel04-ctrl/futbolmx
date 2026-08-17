@@ -14,10 +14,13 @@ const FMX = (()=>{
     return r.json();
   }
   function setDataState(live,updated){
-    document.querySelectorAll('[data-state]').forEach(el=>{el.textContent=live?'Datos conectados':'Modo demostración';});
-    document.querySelectorAll('[data-dot]').forEach(el=>el.classList.toggle('live',live));
+    const manual=!!window.FMX_MANUAL?.enabled && !live;
+    const label=live?'Datos conectados':manual?(window.FMX_MANUAL.label||'Datos actualizados manualmente'):'Modo demostración';
+    document.querySelectorAll('[data-state]').forEach(el=>{el.textContent=label;});
+    document.querySelectorAll('[data-dot]').forEach(el=>el.classList.toggle('live',live||manual));
     const t=$('lastUpdated');
-    if(t) t.textContent=updated?`Actualizado ${new Date(updated).toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`:'API lista para conectar';
+    const when=updated||window.FMX_MANUAL?.updatedAt;
+    if(t) t.textContent=when?`Actualizado ${new Date(when).toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'})}`:'Actualización pendiente';
   }
   function nav(){
     const menu=$('menuBtn'), links=$('navLinks');
