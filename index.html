@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FútbolMX | Liga MX: partidos, tabla, equipos y simulador</title>
+  <meta name="description" content="Consulta partidos, tabla general, clubes y herramientas de Liga MX en una experiencia rápida, moderna y pensada para móvil.">
+  <meta name="theme-color" content="#0b1110">
+  <meta property="og:title" content="FútbolMX | Centro de Liga MX">
+  <meta property="og:description" content="Partidos, tabla, clubes y herramientas del fútbol mexicano.">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="topbar">
+  <div class="container">
+    <span class="live-state"><i class="dot" data-dot></i><b data-state>Modo demostración</b></span>
+    <span id="lastUpdated">API lista para conectar</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="FútbolMX, inicio">
+      <span class="brand-badge">FMX</span>
+      <span class="brand-copy"><b>Fútbol<span>MX</span></b><small>Centro Liga MX</small></span>
+    </a>
+    <button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="navlinks" id="navLinks" aria-label="Navegación principal">
+      <a class="active" href="index.html">Inicio</a>
+      <a href="partidos.html">Partidos</a>
+      <a href="tabla.html">Tabla</a>
+      <a href="equipos.html">Equipos</a>
+      <a class="accent" href="simulador.html">Simulador</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">Liga MX · resultados, datos y herramientas</span>
+        <h1>Todo el fútbol mexicano,<br><em>en un solo lugar.</em></h1>
+        <p>Una experiencia limpia para seguir partidos, revisar la clasificación, explorar clubes y probar escenarios de Liga MX sin perderte entre banners y ruido.</p>
+        <div class="actions">
+          <a class="btn primary" href="partidos.html">Ver próximos partidos →</a>
+          <a class="btn secondary" href="tabla.html">Consultar tabla</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-item"><span class="proof-icon">✓</span><span>Diseño rápido y móvil</span></div>
+          <div class="proof-item"><span class="proof-icon">↻</span><span>Preparado para datos vía API</span></div>
+          <div class="proof-item"><span class="proof-icon">＋</span><span>Herramientas propias de Liga MX</span></div>
+        </div>
+      </div>
+
+      <aside class="scoreboard" aria-label="Próximo partido destacado">
+        <div class="scoreboard-head">
+          <span class="scoreboard-label"><i></i> CENTRO DE PARTIDO</span>
+          <span>Liga MX</span>
+        </div>
+        <div class="featured-body">
+          <div class="featured-date" id="featuredDate">Cargando partido…</div>
+          <div class="teams-vs">
+            <div class="team-center">
+              <div id="featuredHomeLogo"><span class="logo-fallback">MX</span></div>
+              <b id="featuredHome">Local</b>
+            </div>
+            <div class="vs">
+              <strong>VS</strong>
+              <small id="featuredVenue">Sede por confirmar</small>
+            </div>
+            <div class="team-center">
+              <div id="featuredAwayLogo"><span class="logo-fallback">MX</span></div>
+              <b id="featuredAway">Visitante</b>
+            </div>
+          </div>
+        </div>
+        <div class="scoreboard-foot">
+          <span>Próximo encuentro disponible</span>
+          <a href="partidos.html">Calendario →</a>
+        </div>
+        <div class="match-strip">
+          <div><b>Partidos</b><span>Calendario por equipo</span></div>
+          <div><b>Tabla</b><span>Forma y diferencia</span></div>
+          <div><b>Simulador</b><span>Escenarios de puntos</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <nav class="quickbar" aria-label="Accesos rápidos">
+    <div class="container">
+      <a href="tabla.html"><span>01</span>Tabla general</a>
+      <a href="partidos.html"><span>02</span>Partidos</a>
+      <a href="equipos.html"><span>03</span>Clubes</a>
+      <a href="simulador.html"><span>04</span>Simulador</a>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Calendario</span><h2>Próximos partidos</h2><p>Encuentros próximos de Liga MX en una vista compacta.</p></div>
+        <a class="link-more" href="partidos.html">Calendario completo →</a>
+      </div>
+      <div class="cards" id="matchesGrid"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Clasificación</span><h2>Tabla general</h2><p>Posición, puntos, diferencia de goles y forma reciente.</p></div>
+        <span class="status-pill"><i class="dot" data-dot></i><span data-state>Modo demostración</span></span>
+      </div>
+      <div class="standings-layout">
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>DG</th><th>Pts</th><th>Forma</th></tr></thead>
+              <tbody id="standingsBody"></tbody>
+            </table>
+          </div>
+          <div class="legend"><span>● Verde: zona alta</span><span>● Amarillo: zona de clasificación</span></div>
+        </div>
+        <aside class="leader">
+          <span class="eyebrow">Líder actual</span>
+          <img id="leaderLogo" class="leader-logo" alt="Escudo del líder">
+          <h3 id="leaderName">—</h3>
+          <div class="leader-points"><b id="leaderPts">—</b><span>puntos</span></div>
+          <div class="leader-grid">
+            <div><b id="leaderWins">—</b><span>Ganados</span></div>
+            <div><b id="leaderGD">—</b><span>Diferencia</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Clubes</span><h2>Equipos de Liga MX</h2><p>Accede a la ficha de cada club y sus próximos encuentros.</p></div>
+        <a class="link-more" href="equipos.html">Ver todos →</a>
+      </div>
+      <div class="club-grid" id="clubGrid"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Herramientas</span><h2>Una web para consultar y jugar con los datos</h2><p>Funciones útiles que diferencian el proyecto de un sitio de noticias genérico.</p></div>
+      </div>
+      <div class="tools">
+        <a class="tool-card featured-tool" href="simulador.html">
+          <span class="num">01 · INTERACTIVO</span>
+          <h3>Simulador de clasificación</h3>
+          <p>Suma puntos hipotéticos a un club y observa cómo cambiaría su posición.</p>
+        </a>
+        <a class="tool-card" href="tabla.html">
+          <span class="num">02 · DATOS</span><h3>Tabla completa</h3><p>Consulta forma, goles y diferencia.</p>
+        </a>
+        <a class="tool-card" href="partidos.html">
+          <span class="num">03 · CALENDARIO</span><h3>Partidos por club</h3><p>Filtra rápidamente los encuentros.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="editorial-grid">
+        <article class="editorial-card dark">
+          <span class="eyebrow">Diseñado para crecer</span>
+          <h3>Una base lista para convertirse en un portal completo.</h3>
+          <p>La estructura separa partidos, tabla, clubes y herramientas para que después sea fácil sumar estadísticas, goleadores, fichas de encuentros y páginas SEO.</p>
+          <div class="metric-row">
+            <div class="metric"><b>4</b><span>secciones principales</span></div>
+            <div class="metric"><b>1</b><span>API privada en Vercel</span></div>
+            <div class="metric"><b>100%</b><span>responsive</span></div>
+          </div>
+        </article>
+        <article class="editorial-card">
+          <span class="eyebrow">Transparencia</span>
+          <h3>Datos claros y estado visible.</h3>
+          <p>Mientras la API no esté configurada, la interfaz muestra explícitamente que utiliza datos de demostración. Cuando la conexión funciona, el estado cambia automáticamente.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html">
+        <span class="brand-badge">FMX</span>
+        <span class="brand-copy"><b>Fútbol<span>MX</span></b><small>Centro Liga MX</small></span>
+      </a>
+      <p>Proyecto independiente de información, datos y herramientas sobre fútbol mexicano.</p>
+      <div class="footer-note">FútbolMX no está afiliado a Liga MX ni a sus clubes. Marcas, escudos y nombres pertenecen a sus respectivos titulares cuando sean suministrados por el proveedor de datos.</div>
+    </div>
+    <div><h4>Competencia</h4><a href="partidos.html">Partidos</a><a href="tabla.html">Tabla</a><a href="equipos.html">Equipos</a></div>
+    <div><h4>Herramientas</h4><a href="simulador.html">Simulador</a><a href="index.html">Inicio</a></div>
+    <div><h4>Proyecto</h4><a href="robots.txt">Robots</a><a href="sitemap.xml">Sitemap</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 FútbolMX</span><span>Los datos pueden depender de proveedores externos.</span></div>
+</footer>
+
+<script src="common.js"></script>
+<script src="demo.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

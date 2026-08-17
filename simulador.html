@@ -1,0 +1,36 @@
+<!doctype html><html lang="es-MX"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador Liga MX | Escenarios de clasificación | FútbolMX</title><meta name="description" content="Simula una posición de Liga MX sumando puntos hipotéticos a tu equipo y observa cómo cambia la tabla."><meta name="theme-color" content="#0b1110"><link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="topbar"><div class="container"><span class="live-state"><i class="dot" data-dot></i><b data-state>Modo demostración</b></span><span id="lastUpdated">API lista para conectar</span></div></div>
+<header class="header"><div class="container nav">
+<a class="brand" href="index.html"><span class="brand-badge">FMX</span><span class="brand-copy"><b>Fútbol<span>MX</span></b><small>Centro Liga MX</small></span></a>
+<button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<nav class="navlinks" id="navLinks" aria-label="Navegación principal">
+<a  href="index.html">Inicio</a>
+<a  href="partidos.html">Partidos</a>
+<a  href="tabla.html">Tabla</a>
+<a  href="equipos.html">Equipos</a>
+<a class="accent active" href="simulador.html">Simulador</a>
+</nav></div></header>
+<main id="contenido">
+<section class="page-hero"><div class="container"><span class="kicker">Herramienta Liga MX</span><h1>Simulador de clasificación</h1><p>Prueba escenarios de puntos y observa cómo podría moverse tu club en la tabla actual.</p><div class="page-summary"><span>Diseño responsive</span><span>API preparada</span><span>Actualización automática</span></div></div></section>
+
+<section class="simulator"><div class="container sim-grid">
+<div><span class="kicker">Herramienta interactiva</span><h1>¿Hasta dónde puede subir tu equipo?</h1><p>Selecciona un club y agrega puntos hipotéticos. El simulador reordena la clasificación por puntos y diferencia de goles. Es una herramienta exploratoria, no una predicción.</p>
+<div class="sim-form"><div class="field"><label for="teamSelect">Equipo</label><select id="teamSelect"></select></div><div class="field"><label for="pointsSelect">Puntos a sumar</label><select id="pointsSelect"><option value="0">0 puntos</option><option value="1">+1 punto</option><option value="3">+3 puntos</option><option value="6">+6 puntos</option><option value="9">+9 puntos</option><option value="12">+12 puntos</option></select></div><button class="btn primary" id="simulate">Simular posición →</button></div></div>
+<div class="result"><span class="label">RESULTADO ESTIMADO</span><div class="result-position" id="resultPosition">—</div><h3 id="resultTeam">Elige un equipo</h3><p id="resultCopy">Selecciona los puntos y ejecuta la simulación.</p><div class="bar"><div id="progress"></div></div></div>
+</div></section>
+<section class="section"><div class="container"><div class="tools">
+<article class="tool-card featured-tool"><span class="num">IMPORTANTE</span><h3>Simulación, no predicción</h3><p>Solo modifica puntos en la tabla actual. No incorpora resultados futuros ni probabilidades.</p></article>
+<article class="tool-card"><span class="num">PRÁCTICO</span><h3>Visualiza escenarios</h3><p>Comprueba rápidamente cómo podría moverse un club en la clasificación.</p></article>
+<article class="tool-card"><span class="num">SIGUIENTE PASO</span><h3>Escenarios por jornada</h3><p>La estructura queda preparada para evolucionar a resultados hipotéticos partido por partido.</p></article>
+</div></div></section></main>
+<footer class="footer"><div class="container footer-grid">
+<div><a class="brand" href="index.html"><span class="brand-badge">FMX</span><span class="brand-copy"><b>Fútbol<span>MX</span></b><small>Centro Liga MX</small></span></a><p>Proyecto independiente de información, datos y herramientas sobre fútbol mexicano.</p><div class="footer-note">No afiliado a Liga MX ni a sus clubes. Los datos pueden depender de proveedores externos.</div></div>
+<div><h4>Explorar</h4><a href="partidos.html">Partidos</a><a href="tabla.html">Tabla</a><a href="equipos.html">Equipos</a></div>
+<div><h4>Herramientas</h4><a href="simulador.html">Simulador</a><a href="index.html">Inicio</a></div>
+<div><h4>Proyecto</h4><a href="robots.txt">Robots</a><a href="sitemap.xml">Sitemap</a></div>
+</div><div class="container footer-bottom"><span>© 2026 FútbolMX</span><span>Información sujeta a actualización.</span></div></footer>
+<script src="common.js"></script><script src="demo.js"></script><script src="simulator.js"></script></body></html>
