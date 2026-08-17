@@ -1,0 +1,1 @@
+export default function handler(req,res){const host=(process.env.SITE_URL||`https://${req.headers.host}`).replace(/\/$/,'');res.setHeader('Content-Type','text/plain; charset=utf-8');res.status(200).send(`User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${host}/sitemap.xml\n`)}
