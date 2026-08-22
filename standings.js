@@ -1,3 +1,4 @@
-let st=window.FMX_DEMO.standings;
-function draw(){FMX.$('fullStandings').innerHTML=st.map((r,i)=>`<tr class="${i<6?'zone-top':i<10?'zone-play':''}"><td class="rank">${i+1}</td><td><div class="clubcell">${r.team.logo?`<img src="${FMX.esc(r.team.logo)}" alt="">`:''}<a href="equipo.html?id=${r.team.id}">${FMX.esc(r.team.name)}</a></div></td><td>${r.all.played}</td><td>${r.all.win}</td><td>${r.all.draw}</td><td>${r.all.lose}</td><td>${r.all.goals.for}</td><td>${r.all.goals.against}</td><td>${r.goalsDiff>0?'+':''}${r.goalsDiff}</td><td class="pts">${r.points}</td><td><div class="form">${(r.form||'').slice(-5).split('').map(x=>`<i class="${x}">${x==='W'?'G':x==='D'?'E':'P'}</i>`).join('')}</div></td></tr>`).join('')}
-FMX.setDataState(false,window.FMX_MANUAL?.updatedAt);draw();
+const rows=(window.FMX_DEMO?.standings||[]);
+FMX.setDataState(false,window.FMX_MANUAL?.updatedAt);
+const body=FMX.$('fullStandings');
+if(body){body.innerHTML=rows.map((r,i)=>`<tr class="${i<6?'zone-top':i<10?'zone-play':''}"><td class="rank">${i+1}</td><td><div class="clubcell"><span class="mini-fallback">${FMX.initials(r.team.name)}</span><a href="equipo.html?id=${encodeURIComponent(r.team.id)}">${FMX.esc(r.team.name)}</a></div></td><td>${r.all.played}</td><td>${r.all.win}</td><td>${r.all.draw}</td><td>${r.all.lose}</td><td>${r.all.goals?.for??0}</td><td>${r.all.goals?.against??0}</td><td>${r.goalsDiff>0?'+':''}${r.goalsDiff}</td><td class="pts">${r.points}</td><td>${FMX.esc(r.form||'—')}</td></tr>`).join('');}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://futbolmx.vercel.app/sitemap.xml
