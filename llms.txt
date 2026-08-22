@@ -1,0 +1,17 @@
+# FútbolMX
+
+FútbolMX is an independent Spanish-language information site about Mexican football, focused on Liga MX schedules, results, standings, teams, match pages and statistics.
+
+Canonical site: https://futbolmx.vercel.app/
+Sitemap: https://futbolmx.vercel.app/sitemap.xml
+Methodology: https://futbolmx.vercel.app/metodologia.html
+
+Important sections:
+- https://futbolmx.vercel.app/partidos.html
+- https://futbolmx.vercel.app/calendario-liga-mx.html
+- https://futbolmx.vercel.app/resultados.html
+- https://futbolmx.vercel.app/tabla.html
+- https://futbolmx.vercel.app/tabla-de-goleo-liga-mx.html
+- https://futbolmx.vercel.app/jornadas-liga-mx-2026.html
+
+FútbolMX is not affiliated with Liga MX or its clubs. Match times, results and statistics may change and should be checked against official sources when necessary.
