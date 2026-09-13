@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://futbolmx.vercel.app/</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/partidos.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/calendario-liga-mx.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/jornadas-liga-mx-2026.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/jornada-6-liga-mx-2026.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/jornada-7-liga-mx-2026.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/resultados.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/tabla.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/tabla-de-goleo-liga-mx.html</loc><lastmod>2026-08-22</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/equipos.html</loc><lastmod>2026-08-22</lastmod></url>
-
-<url><loc>https://futbolmx.vercel.app/simulador.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/metodologia.html</loc><lastmod>2026-08-27</lastmod></url>
-<url><loc>https://futbolmx.vercel.app/leon-vs-real-salt-lake.html</loc><lastmod>2026-08-22</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/partidos.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/calendario-liga-mx.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/jornadas-liga-mx-2026.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/jornada-8-liga-mx-2026.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/jornada-9-liga-mx-2026.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/resultados.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/tabla.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/tabla-de-goleo-liga-mx.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipos.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/simulador.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/metodologia.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/leon-vs-atletico-san-luis.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/puebla-vs-toluca.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/puebla-vs-atlante.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/juarez-vs-tigres.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/atletico-san-luis-vs-necaxa.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/atlas-vs-pumas.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/monterrey-vs-cruz-azul.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/america-vs-chivas.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/toluca-vs-santos.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/pachuca-vs-tijuana.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/queretaro-vs-leon.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-america.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-tijuana.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-monterrey.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-atlas.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-toluca.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-pumas-unam.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-queretaro.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-chivas.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-cruz-azul.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-necaxa.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-atlante.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-puebla.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-pachuca.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-leon.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-atletico-san-luis.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-tigres-uanl.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-santos-laguna.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/equipo-fc-juarez.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/campeones-liga-mx.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/ultimos-20-campeones-liga-mx.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/arbitros-liga-mx.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/cruz-azul-vs-inter-miami.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/cuando-juega-cruz-azul.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/cuando-juega-america.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/tigres-vs-rayados.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/maximos-goleadores-pumas.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/jornada-10-liga-mx-2026.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://futbolmx.vercel.app/jornada-11-liga-mx-2026.html</loc><lastmod>2026-09-13</lastmod></url>
 </urlset>

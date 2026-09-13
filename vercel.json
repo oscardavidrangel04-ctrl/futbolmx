@@ -4,6 +4,26 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/leon-vs-real-salt-lake.html",
+      "destination": "/partidos.html",
+      "permanent": true
+    },
+    {
+      "source": "/jornada-6-liga-mx-2026.html",
+      "destination": "/resultados.html",
+      "permanent": true
+    },
+    {
+      "source": "/jornada-7-liga-mx-2026.html",
+      "destination": "/jornadas-liga-mx-2026.html",
+      "permanent": true
+    },
+    {
+      "source": "/equipo.html",
+      "destination": "/equipos.html",
+      "permanent": true
     }
   ],
   "headers": [

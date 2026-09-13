@@ -53,7 +53,7 @@ function render(){
   }
 
   const show=teams.length?teams.slice(0,6):st.slice(0,6).map(x=>({team:x.team,venue:{}}));
-  FMX.$('clubGrid').innerHTML=show.map(x=>`<a class="club-card" href="equipo.html?id=${encodeURIComponent(x.team.id)}">
+  FMX.$('clubGrid').innerHTML=show.map(x=>`<a class="club-card" href="equipo-${FMX.esc(({1:'america',2:'tijuana',3:'monterrey',4:'atlas',5:'toluca',6:'pumas-unam',7:'queretaro',8:'chivas',9:'cruz-azul',10:'necaxa',11:'atlante',12:'puebla',13:'pachuca',14:'leon',15:'atletico-san-luis',16:'tigres-uanl',17:'santos-laguna',18:'fc-juarez'})[x.team.id]||'equipos')}.html">
     <span class="arrow">↗</span>
     ${x.team.logo?`<img src="${FMX.esc(x.team.logo)}" alt="Escudo ${FMX.esc(x.team.name)}">`:`<span class="logo-fallback">${FMX.initials(x.team.name)}</span>`}
     <b>${FMX.esc(x.team.name)}</b><small>${FMX.esc(x.venue?.name||'Ver ficha del club')}</small>

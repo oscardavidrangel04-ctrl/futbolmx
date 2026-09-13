@@ -1,4 +1,4 @@
-window.FMX_MANUAL = { enabled:true, updatedAt:'2026-08-16T23:45:00-06:00', label:'Datos 2026 actualizados manualmente' };
+window.FMX_MANUAL = { enabled:true, updatedAt:'2026-09-13T00:00:00-06:00', label:'Calendario verificado al 13 de septiembre de 2026' };
 
 window.FMX_DEMO = {
   standings: [
@@ -22,31 +22,17 @@ window.FMX_DEMO = {
     {rank:18,team:{id:18,name:'FC Juárez',logo:''},points:0,goalsDiff:-11,form:'LLLL',all:{played:4,win:0,draw:0,lose:4,goals:{for:2,against:13}}}
   ],
   fixtures: [
-    {
-      url:'leon-vs-real-salt-lake.html',
-      fixture:{id:2001,date:'2026-08-25T20:30:00-06:00',status:{short:'NS'},venue:{name:"Dick's Sporting Goods Park",city:'Commerce City, Colorado'}},
-      league:{round:'Leagues Cup 2026 · Cuartos de final'},
-      teams:{home:{id:14,name:'León',logo:''},away:{id:101,name:'Real Salt Lake',logo:''}},
-      goals:{home:null,away:null}
-    },
-    {
-      fixture:{id:2002,date:'2026-08-25T18:30:00-06:00',status:{short:'NS'},venue:{name:'SeatGeek Stadium',city:'Bridgeview, Illinois'}},
-      league:{round:'Leagues Cup 2026 · Cuartos de final'},
-      teams:{home:{id:3,name:'Monterrey',logo:''},away:{id:102,name:'Chicago Fire FC',logo:''}},
-      goals:{home:null,away:null}
-    },
-    {
-      fixture:{id:2003,date:'2026-08-26T18:30:00-06:00',status:{short:'NS'},venue:{name:'Sports Illustrated Stadium',city:'Harrison, Nueva Jersey'}},
-      league:{round:'Leagues Cup 2026 · Cuartos de final'},
-      teams:{home:{id:5,name:'Toluca',logo:''},away:{id:103,name:'Austin FC',logo:''}},
-      goals:{home:null,away:null}
-    },
-    {
-      fixture:{id:2004,date:'2026-08-26T20:45:00-06:00',status:{short:'NS'},venue:{name:'Dignity Health Sports Park',city:'Carson, California'}},
-      league:{round:'Leagues Cup 2026 · Cuartos de final'},
-      teams:{home:{id:1,name:'América',logo:''},away:{id:104,name:'Columbus Crew',logo:''}},
-      goals:{home:null,away:null}
-    }
+    {url:'leon-vs-atletico-san-luis.html',fixture:{id:3001,date:'2026-09-14T19:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio León',city:'León, Guanajuato'}},league:{round:'Jornada 8'},teams:{home:{id:100,name:'León',logo:''},away:{id:101,name:'Atlético de San Luis',logo:''}},goals:{home:null,away:null}},
+    {url:'puebla-vs-toluca.html',fixture:{id:3002,date:'2026-09-15T19:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Cuauhtémoc',city:'Puebla, Puebla'}},league:{round:'Partido pendiente de Jornada 7'},teams:{home:{id:102,name:'Puebla',logo:''},away:{id:103,name:'Toluca',logo:''}},goals:{home:null,away:null}},
+    {url:'puebla-vs-atlante.html',fixture:{id:3003,date:'2026-09-18T19:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Cuauhtémoc',city:'Puebla, Puebla'}},league:{round:'Jornada 9'},teams:{home:{id:104,name:'Puebla',logo:''},away:{id:105,name:'Atlante',logo:''}},goals:{home:null,away:null}},
+    {url:'juarez-vs-tigres.html',fixture:{id:3004,date:'2026-09-18T21:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Olímpico Benito Juárez',city:'Ciudad Juárez, Chihuahua'}},league:{round:'Jornada 9'},teams:{home:{id:106,name:'FC Juárez',logo:''},away:{id:107,name:'Tigres UANL',logo:''}},goals:{home:null,away:null}},
+    {url:'atletico-san-luis-vs-necaxa.html',fixture:{id:3005,date:'2026-09-19T17:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Alfonso Lastras',city:'San Luis Potosí'}},league:{round:'Jornada 9'},teams:{home:{id:108,name:'Atlético de San Luis',logo:''},away:{id:109,name:'Necaxa',logo:''}},goals:{home:null,away:null}},
+    {url:'atlas-vs-pumas.html',fixture:{id:3006,date:'2026-09-19T17:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Jalisco',city:'Guadalajara, Jalisco'}},league:{round:'Jornada 9'},teams:{home:{id:110,name:'Atlas',logo:''},away:{id:111,name:'Pumas UNAM',logo:''}},goals:{home:null,away:null}},
+    {url:'monterrey-vs-cruz-azul.html',fixture:{id:3007,date:'2026-09-19T19:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio BBVA',city:'Guadalupe, Nuevo León'}},league:{round:'Jornada 9'},teams:{home:{id:112,name:'Monterrey',logo:''},away:{id:113,name:'Cruz Azul',logo:''}},goals:{home:null,away:null}},
+    {url:'america-vs-chivas.html',fixture:{id:3008,date:'2026-09-19T21:00:00-06:00',status:{short:'NS'},venue:{name:'Sede por confirmar',city:'México'}},league:{round:'Jornada 9 · Clásico Nacional'},teams:{home:{id:114,name:'América',logo:''},away:{id:115,name:'Chivas',logo:''}},goals:{home:null,away:null}},
+    {url:'toluca-vs-santos.html',fixture:{id:3009,date:'2026-09-20T12:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Nemesio Díez',city:'Toluca, Estado de México'}},league:{round:'Jornada 9'},teams:{home:{id:116,name:'Toluca',logo:''},away:{id:117,name:'Santos Laguna',logo:''}},goals:{home:null,away:null}},
+    {url:'pachuca-vs-tijuana.html',fixture:{id:3010,date:'2026-09-20T12:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Hidalgo',city:'Pachuca, Hidalgo'}},league:{round:'Jornada 9'},teams:{home:{id:118,name:'Pachuca',logo:''},away:{id:119,name:'Tijuana',logo:''}},goals:{home:null,away:null}},
+    {url:'queretaro-vs-leon.html',fixture:{id:3011,date:'2026-09-20T20:00:00-06:00',status:{short:'NS'},venue:{name:'Estadio Corregidora',city:'Querétaro, Querétaro'}},league:{round:'Jornada 9'},teams:{home:{id:120,name:'Querétaro',logo:''},away:{id:121,name:'León',logo:''}},goals:{home:null,away:null}}
   ],
   teams: [
     {team:{id:1,name:'América',logo:''},venue:{name:'Liga MX · Apertura 2026'}},
