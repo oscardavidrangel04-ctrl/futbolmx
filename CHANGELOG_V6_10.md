@@ -7,3 +7,4 @@
 - La guía del Play-In ahora aclara que el Apertura 2026 clasifica directamente a ocho equipos.
 - Nuevas URLs: formato de Liguilla, criterios de desempate y calendarios de Chivas, Pumas y Tigres.
 - Enlaces internos añadidos desde las fichas de clubes y nuevas URLs incluidas en el sitemap.
+- Segundo lote SEO de 15 URLs: jornadas 12 a 17, calendarios de Monterrey, Toluca, Pachuca, León, Atlas y Necaxa, más tres guías sobre clasificación, número de partidos y cálculo de la tabla.
