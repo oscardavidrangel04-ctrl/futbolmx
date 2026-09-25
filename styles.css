@@ -322,3 +322,5 @@ tbody tr:hover{background:#fbfdfc}
   .page-hero{padding:50px 0 44px}.page-hero h1{letter-spacing:-3px}
   .metric-row{grid-template-columns:1fr}
 }
+/* Visuales editoriales de apoyo, no representan datos en vivo. */
+.content-figure{margin:0 0 1.5rem}.content-figure img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid rgba(80,160,255,.25)}.content-figure figcaption{margin-top:.6rem;color:var(--muted,#657085);font-size:.92rem;line-height:1.45}
