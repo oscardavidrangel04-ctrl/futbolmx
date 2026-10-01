@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://futbolmx.vercel.app/sitemap.xml
-Sitemap: https://futbolmx.vercel.app/sitemap-prioritario.xml
