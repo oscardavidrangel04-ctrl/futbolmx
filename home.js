@@ -3,7 +3,7 @@ let data={...window.FMX_DEMO,live:false};
 function renderFixtureCard(f){
   const s=f.fixture.status.short;
   const live=['1H','HT','2H','ET','P','LIVE'].includes(s);
-  const score=(f.goals.home!=null||f.goals.away!=null)?`${f.goals.home??0} - ${f.goals.away??0}`:'VS';
+  const score=(f.goals.home!=null&&f.goals.away!=null)?`${f.goals.home??0} - ${f.goals.away??0}`:'VS';
   return `<${f.url?`a href="${FMX.esc(f.url)}"`:`article`} class="match">
     <div class="match-meta"><strong>${live?'EN VIVO':FMX.fmtDate(f.fixture.date)}</strong><span>${FMX.fmtTime(f.fixture.date)}</span></div>
     <div class="match-body">
@@ -18,7 +18,11 @@ function render(){
   const st=data.standings||[],fx=data.fixtures||[],teams=data.teams||[];
   FMX.setDataState(false,window.FMX_MANUAL?.updatedAt);
 
-  const featured=fx[0];
+  const upcoming=fx.filter(FMX.isUpcoming).sort((a,b)=>new Date(a.fixture.date)-new Date(b.fixture.date));
+  const featured=upcoming[0];
+  const featuredTeams=document.querySelector(".scoreboard .teams-vs");
+  if(featuredTeams)featuredTeams.hidden=!featured;
+  if(!featured)FMX.$("featuredDate").textContent="No hay próximos encuentros confirmados en el corte disponible. Consulta el archivo de partidos.";
   if(featured){
     FMX.$('featuredDate').textContent=`${FMX.fmtDate(featured.fixture.date)} · ${FMX.fmtTime(featured.fixture.date)}`;
     FMX.$('featuredVenue').textContent=featured.fixture.venue?.name||featured.fixture.venue?.city||'Sede por confirmar';
@@ -28,9 +32,9 @@ function render(){
     FMX.$('featuredAwayLogo').innerHTML=FMX.logo(featured.teams.away.logo,featured.teams.away.name,'team-logo');
   }
 
-  FMX.$('matchesGrid').innerHTML=fx.slice(0,6).map(renderFixtureCard).join('')||'<div class="empty">No hay próximos partidos disponibles.</div>';
+  FMX.$('matchesGrid').innerHTML=upcoming.slice(0,6).map(renderFixtureCard).join('')||'<div class="empty">No hay próximos partidos disponibles.</div>';
 
-  FMX.$('standingsBody').innerHTML=st.slice(0,12).map((r,i)=>`<tr class="${i<6?'zone-top':i<10?'zone-play':''}">
+  FMX.$('standingsBody').innerHTML=st.slice(0,12).map((r,i)=>`<tr class="${i<8?'zone-top':''}">
     <td class="rank">${i+1}</td>
     <td><div class="clubcell">${r.team.logo?`<img src="${FMX.esc(r.team.logo)}" alt="">`:`<span class="mini-fallback">${FMX.initials(r.team.name)}</span>`}<span>${FMX.esc(r.team.name)}</span></div></td>
     <td>${r.all.played}</td><td>${r.all.win}</td><td>${r.all.draw}</td><td>${r.all.lose}</td>
@@ -39,7 +43,7 @@ function render(){
   </tr>`).join('');
 
   const leader=st[0];
-  if(leader){
+  if(leader&&['leaderLogo','leaderName','leaderPts','leaderWins','leaderGD'].every(id=>FMX.$(id))){
     const leaderLogo=FMX.$('leaderLogo');
     if(leader.team.logo){
       leaderLogo.src=leader.team.logo; leaderLogo.style.display='block';

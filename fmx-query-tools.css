@@ -1,0 +1,13 @@
+.fmx-query-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin:1rem 0}
+.fmx-query-controls input,.fmx-query-controls select{max-width:100%;min-height:44px;border:1px solid #53685b;border-radius:8px;background:#101c15;color:#f5fff8;padding:.65rem .8rem;font:inherit}
+.fmx-query-controls label{font-weight:700}
+.fmx-query-controls input:focus-visible,.fmx-query-controls select:focus-visible{outline:2px solid #94f7aa;outline-offset:3px}
+.fmx-query-controls small{flex-basis:100%}
+[data-query-controls][hidden],.fmx-query-controls [hidden],[data-query-list] [hidden]{display:none!important}
+.scoreboard .teams-vs[hidden]{display:none!important}
+.fmx-audit-note{border-left:3px solid #c7a952;padding:.75rem 1rem;margin:1rem 0;background:#172019;color:#e1e9e3}
+.fmx-palmares-stats{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem}
+.fmx-palmares-stats>div{padding:.75rem 1rem;border:1px solid #53685b;border-radius:10px}
+.fmx-palmares-stats strong{display:block;font-size:1.5rem;color:#1edb7a}
+.fmx-palmares-stats span{display:block;margin-top:.25rem}
+.fmx-breadcrumb{padding-top:.75rem;padding-bottom:.75rem;font-size:.875rem}
