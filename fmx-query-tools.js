@@ -10,7 +10,7 @@
     const aliases = {chivas:'guadalajara', rayados:'monterrey', 'la maquina':'cruz azul', aguilas:'america'};
     const run = () => {
       const raw = normalize(input.value.trim());
-      const query = aliases[raw] || raw;
+      const query = input.dataset.queryAliasCdmx && raw === 'cdmx' ? 'ciudad de mexico' : aliases[raw] || raw;
       let visible = 0;
       items.forEach(item => {
         const text = normalize(item.textContent);
